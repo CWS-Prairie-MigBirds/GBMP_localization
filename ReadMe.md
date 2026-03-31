@@ -78,7 +78,7 @@ hawkears\_score: HawkEars score for minimum spectrogram of localized event
 
 \#/scripts
 
-/scripts/frontierlabsutils.py: python script with functions for post-processing Frontier Labs recordings (Rhinehart, 2022)
+/scripts/frontierlabsutils.py: python script with functions for post-processing Frontier Labs recordings
 
 /scripts/sync\_recordings.py: python script using frontierlabsutils lib to synchronize recordings based on loclog.txt files
 
@@ -116,7 +116,7 @@ hawkears\_score: HawkEars score for minimum spectrogram of localized event
 
 \[SNAS] Prairie Pastures Conservation Area, Nashlyn, Saskatchewan, Canada.
 
-Mixed grass ecozone. Primarily dominated by native grasses (*Stipa* sp., *Wheatgrass* sp., *Bouteloua gracilis*) and shrubs (*Artemisia cana, Rosa arkansana, Symphoricarpos occidentalis*) with some invasion by non-native species (*Agropyron cristatum, Taraxacum* sp.). The bird community is dominated by native grassland specialists such as the Chestnut-collared Longspur\*,\* and generalists such as Vesper Sparrow (*Pooecetes gramineus*), Western Meadowlark (*Sturnella neglecta*), and Horned Lark. Grazed by cattle intermittently through the spring and summer.
+Mixed grass ecozone. Primarily dominated by native grasses (*Stipa* sp., *Wheatgrass* sp., *Bouteloua gracilis*) and shrubs (*Artemisia cana, Rosa arkansana, Symphoricarpos occidentalis*) with some invasion by non-native species (*Agropyron cristatum, Taraxacum* sp.). The bird community is dominated by native grassland specialists such as the Chestnut-collared Longspur, and generalists such as Vesper Sparrow (*Pooecetes gramineus*), Western Meadowlark (*Sturnella neglecta*), and Horned Lark. Grazed by cattle intermittently through the spring and summer.
 
 
 
@@ -138,9 +138,9 @@ Firmware version: FL BAR-LT Localization Firmware 3.32-L
 
 ## Recording properties
 
-Date range of data: SNAS \[2025-05-30 to 2025-05-31], \[2025-06-18 to 2025-06-20]
+Date range of data: SNAS \[2025-05-30 to 2025-05-31], GSA \[2025-06-18 to 2025-06-20]
 
-Times of recording: 06:30 to 08:30
+Times of recording: 06:30 to 08:30 local time
 
 Sleep-wake schedule: records for 30min every 35min from 1hr before sunrise to 4.5hr after sunrise
 
@@ -195,7 +195,7 @@ Synchronization method: loglog.txt files used to identify buffer overflows and i
 Recording start/end time trimming: Synchronized recordings taken simultaneously were trimmed to the same start time and end time
 
 Scripts used: frontierlabsutils.py, sync\_recording.py, trim\_recordings.py
-Resources: Code modified from Tessa Rhinehart (GitHub repository: https://github.com/rhine3/frontierlabsutils)
+Resources: frontierlabutils (Rhinehart 2024; https://github.com/rhine3/frontierlabsutils)
 
 
 
@@ -211,40 +211,74 @@ Scripts: NA
 
 Classes: IBP alpha codes v 2025
 
-\[GSA] GRSP (Grasshopper Sparrow; Ammodramus savannarum); songs only
-\[SNAS] CCLO (Chestnut-collared Longspur; Calcarius ornatus); songs only
+GRSP (Grasshopper Sparrow; Ammodramus savannarum); songs only \[GSA]
+CCLO (Chestnut-collared Longspur; Calcarius ornatus); songs only \[CCLO]
 
 
 
-Playback Audio (songs only): NSWO (Northern Saw-whet Owl, *Aegolius acadicus*), DEJU (Dark-eyed Junco, *Junco hyemalis*), AMRO (American Robin, *Turdus migratorius*), WEME (Western Meadowlark), MOWA (Mourning Warbler, *Geothlypis philadelphia*), AMCR (American Crow, *Corvus brachyrhynchos*), LCSP (LeConte's Sparrow, *Ammospiza leconteii*), YEWA (Yellow Warbler, *Setophaga petechia*), BADO (Barred Owl, *Strix varia*), ALFL (Alder Flycatcher, *Empidonax alnorum*), VESP (Vesper Sparrow), CCSP (Clay-colored Sparrow), BOCH (Boreal Chickadee, *Poecile hudsonicus*), BRBL (Brewer's Blackbird, *Euphagus cyanocephalus*), and MAWR (Marsh Wren, *Cistothorus palustris*)
+Playback Audio (songs only): 
+
+NSWO (Northern Saw-whet Owl, *Aegolius acadicus*)
+
+DEJU (Dark-eyed Junco, *Junco hyemalis*)
+
+AMRO (American Robin, *Turdus migratorius*)
+
+WEME (Western Meadowlark)
+
+MOWA (Mourning Warbler, *Geothlypis philadelphia*)
+
+AMCR (American Crow, *Corvus brachyrhynchos*)
+
+LCSP (LeConte's Sparrow, *Ammospiza leconteii*)
+
+YEWA (Yellow Warbler, *Setophaga petechia*)
+
+BADO (Barred Owl, *Strix varia*)
+
+ALFL (Alder Flycatcher, *Empidonax alnorum*)
+
+VESP (Vesper Sparrow)
+
+CCSP (Clay-colored Sparrow)
+
+BOCH (Boreal Chickadee, *Poecile hudsonicus*)
+
+BRBL (Brewer's Blackbird, *Euphagus cyanocephalus*)
+
+MAWR (Marsh Wren, *Cistothorus palustris*)
 
 
 
 Detection strategy: Convolutional neural network
 
-Detector name and version: HawkEars v.1.0.9
+Detector name and version: HawkEars v.1.0.9 (Huus et al 2025)
 
-Link to detector information: https://github.com/jhuus/HawkEars (Huus et al 2025)
+Link to detector information: https://github.com/jhuus/HawkEars 
 DOI: https://doi.org/10.1016/j.ecoinf.2025.103122
 
 
 
 Post-processing detector outputs:
 
-We conducted species-specific thresholding of classifier scores based on the methods of Tseng et al 2025 (DOI: https://doi.org/10.1007/s10336-025-02260-w). We first ran HawkEars at the lowest threshold possible (0.1). We then binned the scores in 0.05 score increments (18 bins, 0.1 to 1.0) and selected a random sample of 10 detections (n=180 per species) to validate for species presence by audio and visual inspection of the spectrograms. We then used logistic regression of classifier score and TP/FP classifications to generate calibration curves and select confidence thresholds that achieved a target precision of 0.90. We then ran HawkEars a second time at the selected threshold and used these detections for localization.
+We conducted species-specific thresholding of classifier scores based on the methods of Tseng et al 2025. We first ran HawkEars at the lowest threshold possible (0.1). We then binned the scores in 0.05 score increments (18 bins, 0.1 to 1.0) and selected a random sample of 10 detections per bin to validate for species presence by audio and visual inspection of the spectrograms. We then used logistic regression of classifier score and TP/FP classifications to generate calibration curves and select confidence thresholds that achieved a target precision of 0.90. We then ran HawkEars a second time at the selected threshold and used these detections for localization.
 
 
 
 GRSP specific threshold: 0.15 \[Note: threshold of 0.75 used for focal follow on 0618 due to insect noise]
 
 CCLO threshold: 0.25
+
+
 scripts: hawkears.txt, validationapp.R; hawkears\_validation\_EGA.R; csv\_wrangle.R
 
 
 
 ## Localization:
 
-Tools/packages used for localization: OpenSoundscape Library
+
+
+Tools/packages used for localization: OpenSoundscape Library (Lapp et al 2023)
 
 Localization algorithm: GCC-PHAT (OpenSoundscape v0.11.0 default)
 
@@ -266,7 +300,11 @@ individual aggregation = 10m (localized positions less than 10m apart with the s
 
 
 
-minspec threshold = 0.4 (for each localized event, the minimum spectrogram is generated using the lowest value across aligned audio clips for each pixel position. We then analyzed each minspec using HawkEars, and filtered the results at a score of 0.4. This method filters out most errors in species detection and audio cross-correlation) \[Note: events from focal follows or playback were manually reviewed and the minspec threshold was not applied]
+minspec threshold = 0.4 (for each localized event, the minimum spectrogram is generated using the lowest value across aligned audio clips for each pixel position. We then analyzed each minspec using HawkEars, and filtered the results at a score of 0.4. This method filters out most errors in species detection and audio cross-correlation) 
+
+
+
+\[Note: events from focal follows or playback were manually reviewed and the minspec threshold was not applied]
 
 
 
@@ -314,7 +352,7 @@ Lapp, Sam; Rhinehart, Tessa; Freeland-Haynes, Louis; Khilnani, Jatin; Syunkova, 
 
 
 
-Rhinehart, Tessa. Acoustic synchronization for Frontier Labs recorders (2022). https://github.com/rhine3/frontierlabsutils
+Rhinehart, Tessa. Acoustic synchronization for Frontier Labs recorders (2024). https://github.com/rhine3/frontierlabsutils
 
 
 
