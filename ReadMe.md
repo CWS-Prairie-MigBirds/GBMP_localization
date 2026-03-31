@@ -214,6 +214,7 @@ Classes: IBP alpha codes v 2025
 \[GSA] GRSP (Grasshopper Sparrow; Ammodramus savannarum); songs only
 
 
+
 \[SNAS] CCLO (Chestnut-collared Longspur; Calcarius ornatus); songs only
 
 
@@ -264,9 +265,17 @@ References: https://opensoundscape.org/en/latest/tutorials/acoustic\_localizatio
 
 
 Error rejection parameters:
+
+
 min\_recievers = 4 (minimum number of receivers used to localize song)
+
+
 max\_distance = 80 (maximum distance is meters from reference microphone to microphone used in localization)
+
+
 residual rms < 20m \[Note: No rms filter used for follow or playback in order to properly assess precision and accuracy of results]
+
+
 distance outside convex hull < 20m
 
 
