@@ -211,8 +211,10 @@ Scripts: NA
 
 Classes: IBP alpha codes v 2025
 
-\#GRSP (Grasshopper Sparrow; Ammodramus savannarum); songs only \[GSA]
-#CCLO (Chestnut-collared Longspur; Calcarius ornatus); songs only \[CCLO]
+\[GSA] GRSP (Grasshopper Sparrow; Ammodramus savannarum); songs only
+
+
+\[SNAS] CCLO (Chestnut-collared Longspur; Calcarius ornatus); songs only
 
 
 
