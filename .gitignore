@@ -1,2 +1,5 @@
 # output
 audio/
+
+__pycache__/
+*.pyc
