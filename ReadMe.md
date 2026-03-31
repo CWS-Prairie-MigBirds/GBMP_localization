@@ -211,42 +211,14 @@ Scripts: NA
 
 Classes: IBP alpha codes v 2025
 
-GRSP (Grasshopper Sparrow; Ammodramus savannarum); songs only \[GSA]
-CCLO (Chestnut-collared Longspur; Calcarius ornatus); songs only \[CCLO]
+\#GRSP (Grasshopper Sparrow; Ammodramus savannarum); songs only \[GSA]
+#CCLO (Chestnut-collared Longspur; Calcarius ornatus); songs only \[CCLO]
 
 
 
-Playback Audio (songs only): 
+Playback species mix (songs only):
 
-NSWO (Northern Saw-whet Owl, *Aegolius acadicus*)
-
-DEJU (Dark-eyed Junco, *Junco hyemalis*)
-
-AMRO (American Robin, *Turdus migratorius*)
-
-WEME (Western Meadowlark)
-
-MOWA (Mourning Warbler, *Geothlypis philadelphia*)
-
-AMCR (American Crow, *Corvus brachyrhynchos*)
-
-LCSP (LeConte's Sparrow, *Ammospiza leconteii*)
-
-YEWA (Yellow Warbler, *Setophaga petechia*)
-
-BADO (Barred Owl, *Strix varia*)
-
-ALFL (Alder Flycatcher, *Empidonax alnorum*)
-
-VESP (Vesper Sparrow)
-
-CCSP (Clay-colored Sparrow)
-
-BOCH (Boreal Chickadee, *Poecile hudsonicus*)
-
-BRBL (Brewer's Blackbird, *Euphagus cyanocephalus*)
-
-MAWR (Marsh Wren, *Cistothorus palustris*)
+NSWO (Northern Saw-whet Owl, *Aegolius acadicus*), DEJU (Dark-eyed Junco, *Junco hyemalis*), AMRO (American Robin, *Turdus migratorius*), WEME (Western Meadowlark), MOWA (Mourning Warbler, *Geothlypis philadelphia*), AMCR (American Crow, *Corvus brachyrhynchos*), LCSP (LeConte's Sparrow, *Ammospiza leconteii*), YEWA (Yellow Warbler, *Setophaga petechia*), BADO (Barred Owl, *Strix varia*), ALFL (Alder Flycatcher, *Empidonax alnorum*), VESP (Vesper Sparrow), CCSP (Clay-colored Sparrow), BOCH (Boreal Chickadee, *Poecile hudsonicus*), BRBL (Brewer's Blackbird, *Euphagus cyanocephalus*), MAWR (Marsh Wren, *Cistothorus palustris*)
 
 
 
@@ -254,7 +226,7 @@ Detection strategy: Convolutional neural network
 
 Detector name and version: HawkEars v.1.0.9 (Huus et al 2025)
 
-Link to detector information: https://github.com/jhuus/HawkEars 
+Link to detector information: https://github.com/jhuus/HawkEars
 DOI: https://doi.org/10.1016/j.ecoinf.2025.103122
 
 
@@ -268,6 +240,7 @@ We conducted species-specific thresholding of classifier scores based on the met
 GRSP specific threshold: 0.15 \[Note: threshold of 0.75 used for focal follow on 0618 due to insect noise]
 
 CCLO threshold: 0.25
+
 
 
 scripts: hawkears.txt, validationapp.R; hawkears\_validation\_EGA.R; csv\_wrangle.R
@@ -300,7 +273,7 @@ individual aggregation = 10m (localized positions less than 10m apart with the s
 
 
 
-minspec threshold = 0.4 (for each localized event, the minimum spectrogram is generated using the lowest value across aligned audio clips for each pixel position. We then analyzed each minspec using HawkEars, and filtered the results at a score of 0.4. This method filters out most errors in species detection and audio cross-correlation) 
+minspec threshold = 0.4 (for each localized event, the minimum spectrogram is generated using the lowest value across aligned audio clips for each pixel position. We then analyzed each minspec using HawkEars, and filtered the results at a score of 0.4. This method filters out most errors in species detection and audio cross-correlation)
 
 
 
