@@ -1,0 +1,74 @@
+"""
+HawkEars.txt
+by Erica Alex
+2026-02-02
+
+This script documents the parameters used to generate HawkEars detections for acoustic localization. An initial run is conducted for each species at the lowest possible threshold (0.1). We then validate a stratified random sample of detections (2-2_validationapp.R) and select the optimum species threshold based on the true positive rate (2-3_hawkears_validation_EGA.R). We then re-run HawkEars for each species using the optimum selected threshold.
+
+Note: in some cases, the optimum threshold may vary greatly between recordings as a result of environmental conditions, extraneous noise, species presence, soundscape activity, etc. For the focal follow of GRSP, we have selected a substantially higher score threshold due to the presence of loud buzzing insects which mask bird vocalizations.
+
+Playback recordings included a mix of species in sequence. We did not select species-specific thresholds in this case. Instead, we used a blanket threshold of 0.4 and manually reviewed the detections.
+
+"""
+
+conda activate hawkears
+
+cd HawkEars
+
+python analyze.py -h 
+
+options:
+  -h, --help            show this help message and exit
+  -b, --band BAND       If 1, use banding codes labels. If 0, use common names. Default = 1.
+  -d, --debug           Flag for debug mode (analyze one spectrogram only, and output several top candidates).
+  --embed               If specified, generate a pickle file containing embeddings for each recording processed.
+  --fast                If specified, reduce ensemble size for faster inference.
+  -e, --end END         Optional end time in hh:mm:ss format, where hh and mm are optional.
+  -i, --input INPUT     Input path (single audio file or directory). No default.
+  -o, --output OUTPUT   Output directory to contain label files. Default is input path, if that is a directory.
+  --overlap OVERLAP     Seconds of overlap for adjacent 3-second spectrograms. Default = 1.5.
+  -m, --merge MERGE     Specify 0 to not merge adjacent labels of same species. Default = 1, i.e. merge.
+  -p, --min_score MIN_SCORE
+                        Generate label if score >= this. Default = 0.8.
+  --recurse             If specified, process all subdirectories of the input directory.
+  --rtype RTYPE         Output type. One of "audacity", "csv" or "both". Default is "audacity".
+  -s, --start START     Optional start time in hh:mm:ss format, where hh and mm are optional.
+  --threads THREADS     Number of threads. Default = 3
+  --power POWER         Power parameter to mel spectrograms. Default = 0.7
+  --date DATE           Date in yyyymmdd, mmdd, or file. Specifying file extracts the date from the file name, using
+                        the file_date_regex in base_config.py.
+  --lat LAT             Latitude. Use with longitude to identify an eBird county and ignore corresponding rarities.
+  --lon LON             Longitude. Use with latitude to identify an eBird county and ignore corresponding rarities.
+  --filelist FILELIST   Path to optional CSV file containing input file names, latitudes, longitudes and recording
+                        dates.
+  --region REGION       eBird region code, e.g. "CA-AB" for Alberta. Use as an alternative to latitude/longitude.
+  --unfilt UNFILT       Specify 0 to omit unfiltered inference when using filters. If set to 1, use max of filtered
+                        and unfiltered predictions (default = True).
+  --lpf LPF             Specify 1 to enable low-pass filter (default = False).
+  --lpfstart LPFSTART   Start frequency for low-pass filter curve (default = 3500).
+  --lpfend LPFEND       End frequency for low-pass filter curve (default = 5000).
+  --lpfdamp LPFDAMP     Amount of damping from 0 to 1 for low-pass filter (default = 1).
+  --hpf HPF             Specify 1 to enable high-pass filter (default = False).
+  --hpfstart HPFSTART   Start frequency for high-pass filter curve (default = 2000).
+  --hpfend HPFEND       End frequency for high-pass filter curve (default = 4000).
+  --hpfdamp HPFDAMP     Amount of damping from 0 to 1 for high-pass filter (default = 0.9).
+  --bpf BPF             Specify 1 to enable band-pass filter (default = False).
+  --bpfstart BPFSTART   Start frequency for band-pass filter curve (default = 1200).
+  --bpfend BPFEND       End frequency for band-pass filter curve (default = 7000).
+  --bpfdamp BPFDAMP     Amount of damping from 0 to 1 for band-pass filter (default = 0.9).
+
+#HawkEars initial run
+python analyze.py -i "REDACTED" -o "REDACTED" --overlap 0 -m 0 -p 0.1 --rtype both
+
+#HawkEars GRSP specific threshold - general
+python analyze.py -i "REDACTED" -o "REDACTED" --overlap 0 -m 0 -p 0.15 --rtype both
+
+#HawkEars GRSP specific threshold - focal follow
+python analyze.py -i "REDACTED" -o "REDACTED" --overlap 0 -m 0 -p 0.75 --rtype both
+
+#HawkEars CCLO specific threshold
+python analyze.py -i "REDACTED" -o "REDACTED" --overlap 0 -m 0 -p 0.25 --rtype both
+
+#HawkEars playback
+python analyze.py -i "REDACTED" -o "REDACTED" --overlap 0 -m 0 -p 0.4 --rtype both
+
