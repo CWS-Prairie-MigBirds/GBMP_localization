@@ -2,7 +2,7 @@
 
 
 
-Creators: Erica Alex, Barry Robinson (barry.robinson@ec.gc.ca)
+Creators: Erica Alex, Janine McManus, Barry Robinson (barry.robinson@ec.gc.ca)
 
 Affiliations: Terrestrial Unit, Prairie Region, Canadian Wildlife Service, Environment and Climate Change Canada
 
@@ -41,8 +41,6 @@ Personnel: Erica Alex, Janine McManus, Amy Sutley and Barry Robinson participate
 
 
 Data types collected: audio recordings, focal follows, playback (Note: stereo recordings at centroid, point count surveys, and spotmap surveys available but not included here)
-
-
 
 
 
@@ -118,7 +116,7 @@ hawkears\_score: HawkEars score for minimum spectrogram of localized event
 
 \[SNAS] Prairie Pastures Conservation Area, Nashlyn, Saskatchewan, Canada.
 
-Mixed grass ecozone. Primarily dominated by native grasses (*Stipa* sp., *Wheatgrass* sp., *Bouteloua gracilis*) and shrubs (*Artemisia cana, Rosa arkansana, Symphoricarpos occidentalis*) with some invasion by non-native species (*Agropyron cristatum, Taraxacum* sp.). The bird community is dominated by native grassland specialists such as the Chestnut-collared Longspur*,* and generalists such as Vesper Sparrow (*Pooecetes gramineus*), Western Meadowlark (*Sturnella neglecta*), and Horned Lark. Grazed by cattle intermittently through the spring and summer.
+Mixed grass ecozone. Primarily dominated by native grasses (*Stipa* sp., *Wheatgrass* sp., *Bouteloua gracilis*) and shrubs (*Artemisia cana, Rosa arkansana, Symphoricarpos occidentalis*) with some invasion by non-native species (*Agropyron cristatum, Taraxacum* sp.). The bird community is dominated by native grassland specialists such as the Chestnut-collared Longspur\*,\* and generalists such as Vesper Sparrow (*Pooecetes gramineus*), Western Meadowlark (*Sturnella neglecta*), and Horned Lark. Grazed by cattle intermittently through the spring and summer.
 
 
 
@@ -262,7 +260,11 @@ max\_distance = 80 (maximum distance is meters from reference microphone to micr
 residual rms < 20m \[Note: No rms filter used for follow or playback in order to properly assess precision and accuracy of results]
 distance outside convex hull < 20m
 
+
+
 individual aggregation = 10m (localized positions less than 10m apart with the same label and start\_timestamp are assumed to be the same individual, reduced to single position estimate with the lowest rms)
+
+
 
 minspec threshold = 0.4 (for each localized event, the minimum spectrogram is generated using the lowest value across aligned audio clips for each pixel position. We then analyzed each minspec using HawkEars, and filtered the results at a score of 0.4. This method filters out most errors in species detection and audio cross-correlation) \[Note: events from focal follows or playback were manually reviewed and the minspec threshold was not applied]
 
@@ -298,13 +300,14 @@ Describe data ownership and any restrictions on the use of the data
 
 ## License
 
-CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ 
+CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 
 
 
 ## Work Cited and Links
 
 Huus, Jan; Kelly, Kevin G,; Bayne, Erin M.; Knight, Elly C. HawkEars: A regional, high-performance avian acoustic classifier. (2025). Ecological Informatics (87). https://doi.org/10.1016/j.ecoinf.2025.103122
+
 
 
 Lapp, Sam; Rhinehart, Tessa; Freeland-Haynes, Louis; Khilnani, Jatin; Syunkova, Alexandra; Kitzes, Justin. OpenSoundscape: An Open-Source Bioacoustics Analysis Package for Python. (2023) Methods in Ecology and Evolution. https://doi.org/10.1111/2041-210X.14196.
